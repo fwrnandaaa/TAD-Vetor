@@ -4,11 +4,14 @@ public class VetorArrayTeste{
         for(int i = 0; i<5; i++){
             v.insertAtRank(i, (16+i));
         }
-        v.verVetor();
         v.insertAtRank(2, 2);
-        System.out.println("\n");
+        System.out.println("Vetor após inserir elemento em um rank não nulo: "+"\n");
         v.verVetor();
+       System.out.println("Antigo elemento do rank 1: "+v.replaceAtRank(1, 3) + "\n" + "Vetor após substituição: ");
+       v.verVetor();
 
-       System.out.println("Elemento no rank 3: "+v.elemAtRank(3));
+       System.out.println("Elemento removido: " + v.removeAtRank(3));
+       v.verVetor();
+       
     }
 }

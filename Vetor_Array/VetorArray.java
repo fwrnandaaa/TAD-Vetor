@@ -41,13 +41,31 @@ public class VetorArray{
          }
     }
     public void verVetor(){
-        for(int i = 0; i<size-1; i++){
+        for(int i = 0; i<size; i++){
             System.out.println(VetorArray[i] + " ");
         }
     }
     public Object replaceAtRank(int r, Object O){
-        if(r > size){
-            throw new VetorArrayExcecao()
+        if(r < 0 || r > size){
+            throw new VetorArrayExcecao("Rank inválido");
+        }
+        else{
+            Object antigo = VetorArray[r];
+            VetorArray[r]= O;
+            return antigo;
+        }
+    }
+    public Object removeAtRank(int r){
+        if(r < 0 || r > size){
+            throw new VetorArrayExcecao("Rank inválido");
+        }
+        else{
+            Object removido = VetorArray[r];
+            for(int i = r; i<size-1;i++){
+                VetorArray[i] = VetorArray[i+1];
+            }
+            size--;
+            return removido;
         }
     }
 }
