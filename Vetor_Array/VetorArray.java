@@ -1,22 +1,22 @@
 public class VetorArray{
         private int size;
-        private Object[] vetorArray;
+        private Object[] VetorArray;
 
         public VetorArray(int capacidadeInicial){
-            vetor_array  = new Object[capacidadeInicial];
+            VetorArray  = new Object[capacidadeInicial];
             size = 0;
         }
 
         public boolean isEmpty(){
             if(this.size == 0){
-                return true
+                return true;
             }
             return false;
         }
         public int size(){
             return size;
         }
-        elemAtRank(int r){
+        public Object elemAtRank(int r){
             if(r < 0 || r >=size()){
                 throw new VetorArrayExcecao("O rank é inválido");
             }
@@ -24,13 +24,30 @@ public class VetorArray{
                 return VetorArray[r];
             }
         }
-    insertAtRank(int r, Object O){
-        if(r < 0 || r >= size){
+     public void insertAtRank(int r, Object O){
+        if(r < 0 || r > size){
             throw new VetorArrayExcecao("O rank é inválido");
         }
+        else if(size == 0){
+            VetorArray[0] = O;
+            size++;
+        }
         else{
-            for(int i = size-1; i< size; i++)
-            VetorArray[r] = O;
+            for(int i = size; i> r; i--){
+                VetorArray[i] = VetorArray[i-1];
+        }
+         VetorArray[r] = O;
+         size++;
+         }
+    }
+    public void verVetor(){
+        for(int i = 0; i<size-1; i++){
+            System.out.println(VetorArray[i] + " ");
+        }
+    }
+    public Object replaceAtRank(int r, Object O){
+        if(r > size){
+            throw new VetorArrayExcecao()
         }
     }
 }
