@@ -82,4 +82,37 @@ public class VetorLL {
         return current.value;
     }
 
+    public Object removeAtRank(int r) {
+        Node current = head;
+        if (r >= size) {
+            throw new VetorLLExcecao("Rank inválido");
+        }
+
+        if (r == 0) {
+            head = head.next;
+            return current.value;
+        } else {
+            for (int i = 0; i <= r - 1; i++) {
+                current = current.next;
+            }
+            current.prev.next = current.next;
+            size--;
+            return current.value;
+        }
+    }
+
+    public Object replaceAtRank(int r, Object O) {
+        if (r >= size) {
+            throw new VetorLLExcecao("Rank inválido");
+        } else {
+            Node current = head;
+            for (int i = 0; i < r; i++) {
+                current = current.next;
+            }
+            Object antigo = current.value;
+            current.value = O;
+            return antigo;
+        }
+    }
+
 }
